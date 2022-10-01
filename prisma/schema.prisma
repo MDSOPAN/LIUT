@@ -1,0 +1,32 @@
+generator client {
+  provider = "prisma-client-js"
+  output   = "./"
+  // previewFeatures = ["interactiveTransactions"]
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model Questions {
+  body    String  @db.VarChar(255)
+  options Json
+  answers Json 
+  exam   Exams? @relation(fields: [ExamNo], references: [No],onDelete: SetNull)
+  ExamNo  Int? 
+  id      BigInt  @id @default(autoincrement())
+
+  @@index([body], map: "body")
+}
+
+model Exams {
+  No Int    @id @default(autoincrement())
+  time Int?
+  questions Questions[]
+}
+
+model datastore{
+  id String @id @db.VarChar(250)
+  value String @db.VarChar(250)
+}

@@ -1,0 +1,27 @@
+.page-container {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+.logcard * {
+  margin: 0.4em;
+}
+.logform {
+  display: grid;
+  grid-template-rows: 0.2fr 1fr 1fr;
+  grid-template-columns: 0.2fr 1fr;
+  align-items: center;
+  justify-content: center;
+  align-content: center;
+}
+input,
+label,
+p {
+  font-size: clamp(0.5rem, 3.5vw, 2rem);
+}
+
+svg {
+  display: none;
+}

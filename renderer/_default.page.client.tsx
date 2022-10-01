@@ -1,18 +1,22 @@
-import React from 'react'
-import { hydrateRoot } from 'react-dom/client'
-import { PageShell } from './PageShell'
-import type { PageContextClient } from './types'
+import React from "react";
+import { hydrateRoot } from "react-dom/client";
+import { QueryClient, QueryClientProvider } from "react-query";
+import { PageShell } from "./PageShell";
+import type { PageContextClient } from "./types";
 
-export { render }
+export { render };
 
 async function render(pageContext: PageContextClient) {
-  const { Page, pageProps } = pageContext
+  const { Page, pageProps } = pageContext;
+  const client = new QueryClient();
   hydrateRoot(
-    document.getElementById('page-view')!,
+    document.getElementById("page-view")!,
     <PageShell pageContext={pageContext}>
-      <Page {...pageProps} />
+      <QueryClientProvider client={client}>
+        <Page {...pageProps} />
+      </QueryClientProvider>
     </PageShell>
-  )
+  );
 }
 
 /* To enable Client-side Routing:

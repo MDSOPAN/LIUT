@@ -17,3 +17,35 @@ a {
 .navitem.is-active {
   background-color: #eee;
 }
+
+.card {
+  background-color: hsl(197deg 70% 27% / 12%);
+  margin: 1em;
+  color: #265985;
+  border: thin solid;
+  padding: 1em;
+  border-radius: 1em;
+}
+.errcard {
+  background-color: hsl(0deg 100% 48% / 25%);
+  color: red;
+}
+.succcard {
+  background-color: rgba(29, 245, 0, 0.25);
+  color: green;
+}
+
+.btn {
+  padding: 0.4em;
+  border: none;
+  display: block;
+  margin: 0.4em 0.2em;
+  font-size: clamp(0.4rem, 2.5vw, 1.5rem);
+  width: 20%;
+  height: 20%;
+  min-height: max-content;
+  min-width: max-content;
+  border-radius: 0.6em;
+  background-color: #2a565a;
+  color: white;
+}
