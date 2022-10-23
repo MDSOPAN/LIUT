@@ -122,7 +122,7 @@ function Qoptions({ el, ind, Qid, Qkey, client }: any) {
                 style={{ fontSize: "clamp(0.7rem, 3.8vw, 2.8rem)" }}
                 htmlFor="updopt"
               >
-                Name:{" "}
+                Option:{" "}
               </label>
               <input
                 style={{ fontSize: "clamp(0.5rem, 3vw, 1.5rem)" }}

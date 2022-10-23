@@ -89,36 +89,53 @@ function Page() {
   let pgcontext = usePageContext();
   let [addquestionerr, setAddquesionerr] = useState("");
 
-  const {
-    isLoading,
-    error: any,
-    data,
-  } = useQuery(["Questions"], async () => {
-    return fetch(`/api/getallquestions`).then((res) => res.json());
+  const { isLoading, error, data }: any = useQuery(["Questions"], async () => {
+    let res: any = await fetch(`/api/getallquestions`);
+    if (res.status == 400) {
+      throw new Error("Cannot Connect to the database");
+    }
+    console.log("RES", res.status);
+    res = await res.json();
+    return res;
   });
   let Questions: any[] = [];
   let Ans: any[] = [];
   let Qid = 0;
   let [isdata, setisData] = useState(false);
-  if (!isLoading) {
-    console.log(data);
+  if (!isLoading && !error) {
     Questions = data.data;
   }
   console.log(Questions);
   useEffect(() => {
-    if (Questions.length && !isLoading) setisData(true);
+    if (Questions.length && !isLoading && !error) setisData(true);
   }, [isLoading]);
   let code = useRef(67);
   return (
     <>
       <Finalize />
-      {!isdata && !isLoading && (
+      {isLoading && (
+        <Card classNa="submitanim">
+          <p
+            style={{
+              textAlign: "center",
+              fontSize: "clamp(0.5rem, 3vw, 2.5rem)",
+            }}
+          >
+            Loading
+          </p>
+        </Card>
+      )}
+      {!isdata && !isLoading && !error && (
         <Card>
           <h1 style={{ textAlign: "center" }}>No Questions Yet.</h1>
           <h2 style={{ textAlign: "center" }}>Please Create One</h2>
         </Card>
       )}
-
+      {error && !isLoading && (
+        <Card classNa="errcard">
+          <h1 style={{ textAlign: "center" }}>{error.message}</h1>
+        </Card>
+      )}
       {isdata &&
         Questions &&
         Questions.map((el, ind) => {

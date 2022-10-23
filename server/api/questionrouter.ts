@@ -2,6 +2,7 @@ import { Router } from "express";
 import { createHmac } from "crypto";
 import { PrismaClient } from "../../prisma";
 import { v4 as uuid } from "uuid";
+import translate from "google-translate-api-x";
 import toJsonf from "./jsonfix";
 const questionrouter = Router();
 
@@ -37,11 +38,12 @@ questionrouter.get("/app/getallquestions", async (req, res, next) => {
           not: null,
         },
       },
+
       orderBy: {
         id: "asc",
       },
     });
-    let updid = await prisma.datastore.findFirstOrThrow({
+    let updid = await prisma.datastore.findFirst({
       where: {
         id: "updid",
       },
@@ -49,7 +51,19 @@ questionrouter.get("/app/getallquestions", async (req, res, next) => {
         value: true,
       },
     });
+    // let qarr = new Array();
+    // if (req.params.lang !== "en") {
+    //   data.forEach(async (el: any) => {
+    //     qarr.push(translate(el.body, { from: "en", to: req.params.lang }));
+    //   });
+    //   let da = await Promise.all(qarr);
 
+    //   da.forEach((el, i) => {
+    //     data[i].body = el.text;
+    //   });
+
+    //   // console.log(da);
+    // }
     await prisma.$disconnect;
     res.status(200).send({
       status: "Success",
@@ -57,6 +71,44 @@ questionrouter.get("/app/getallquestions", async (req, res, next) => {
       updid,
     });
   } catch (error: any) {
+    console.log(error);
+    await prisma.$disconnect;
+    res.status(400).json({
+      status: "Failed",
+      error: error.toString(),
+    });
+  }
+});
+
+questionrouter.post("/app/translation/:type", async (req, res, next) => {
+  try {
+    await prisma.$connect;
+
+    let tr = req.body.translate;
+    let data: any = await translate(tr, { from: "en", to: req.body.lang });
+
+    if (req.params.type == "array") {
+      let optarr = new Array();
+      data.forEach((el: any) => {
+        optarr.push(el.text);
+      });
+      await prisma.$disconnect;
+      res.status(200).send({
+        status: "Success",
+        data: optarr,
+      });
+    } else {
+      await prisma.$disconnect;
+      res.status(200).send({
+        status: "Success",
+        data: data.text,
+      });
+    }
+
+    //   // console.log(da);
+    // }
+  } catch (error: any) {
+    console.log(error);
     await prisma.$disconnect;
     res.status(400).json({
       status: "Failed",
@@ -105,7 +157,7 @@ questionrouter.get("/app/getexams", async (req, res, next) => {
         questions: true,
       },
     });
-    let updid = await prisma.datastore.findFirstOrThrow({
+    let updid = await prisma.datastore.findFirst({
       where: {
         id: "updid",
       },
@@ -127,7 +179,7 @@ questionrouter.get("/app/getexams", async (req, res, next) => {
     });
   }
 });
-
+//////////////////app end
 questionrouter.use((req, res, next) => {
   let userid: any = process.env.USER_NAME?.toString();
   let pass: any = process.env.USER_PASS?.toString();

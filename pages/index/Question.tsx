@@ -147,7 +147,13 @@ function Question({ Q, Qo, A, Qid, idx }: any) {
           >
             <label htmlFor="updQ">Question: </label>
             <br />
-            <textarea id="updQ" ref={updq} />
+            <textarea
+              id="updQ"
+              ref={updq}
+              style={{
+                fontSize: " clamp(0.7rem, 2.8vw, 3.4rem)",
+              }}
+            />
             <br />
             <button className="btn" type="submit">
               Submit
@@ -210,13 +216,14 @@ function Question({ Q, Qo, A, Qid, idx }: any) {
               })}
             </ol>
             <button
+              title="Add an option"
               className="btn"
               style={{
                 backgroundColor: "#365c7c",
                 display: "flex",
                 alignItems: "center",
-                width: "auto",
-                height: "auto",
+                height: "clamp(1rem, 5vw, 5rem)",
+                width: "clamp(1rem, 5vw, 5rem)",
               }}
               onClick={(el) => {
                 if (!addopt) {
@@ -227,10 +234,10 @@ function Question({ Q, Qo, A, Qid, idx }: any) {
                 }
               }}
             >
-              <FaPlus size={15} />
+              <FaPlus size="clamp(0.2rem,1.3em,1.5rem)" />
               <p
                 style={{
-                  fontSize: "clamp(0.2rem,1em,1rem)",
+                  fontSize: "clamp(0.2rem,1.3em,1.5rem)",
                   margin: "0.2em",
                 }}
               >
@@ -267,7 +274,10 @@ function Question({ Q, Qo, A, Qid, idx }: any) {
             >
               <label htmlFor="adddopt">Option {Qo.length + 1}: </label>
               <input
-                style={{ width: "80%" }}
+                style={{
+                  width: "80%",
+                  fontSize: "clamp(0.7rem, 2.8vw, 3.4rem)",
+                }}
                 type="text"
                 name="addopt"
                 id="addopt"
