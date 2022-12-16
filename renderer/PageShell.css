@@ -20,10 +20,10 @@ a {
 
 .card {
   background-color: hsl(197deg 70% 27% / 12%);
-  margin: 1em;
+  margin: 0.5em;
   color: #265985;
   border: thin solid;
-  padding: 1em;
+  padding: 0.5em;
   border-radius: 1em;
 }
 .errcard {
@@ -40,9 +40,9 @@ a {
   border: none;
   display: block;
   margin: 0.4em 0.2em;
-  font-size: clamp(0.4rem, 2.5vw, 1.5rem);
-  width: 20%;
-  height: 20%;
+  font-size: clamp(0.4rem, 1.5vw, 1.5rem);
+  /* width: 20%;
+  height: 20%; */
   min-height: max-content;
   min-width: max-content;
   border-radius: 0.6em;

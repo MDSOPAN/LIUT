@@ -7,7 +7,7 @@
   font-size: clamp(1.5rem, 1.4em, 2.5rem);
 }
 .Ques > p:first-of-type {
-  font-size: clamp(2rem, 2.5vw, 3rem);
+  font-size: clamp(2rem, 2vw, 3rem);
   margin: 0.5em 0;
   grid-column: 1/3;
 }
@@ -24,7 +24,7 @@
   color: #265985;
 }
 ol li::marker {
-  font-size: clamp(0.5rem, 3.5vw, 2.5rem);
+  font-size: clamp(0.5rem, 1.8vw, 2.5rem);
   font-weight: bold;
 }
 .optp {
@@ -43,7 +43,7 @@ ul {
 
 .ansp p {
   margin: 0.2em;
-  font-size: clamp(0.5rem, 3.5vw, 2.5rem);
+  font-size: clamp(0.5rem, 2vw, 2.5rem);
 }
 .ans {
   margin: 0.5em;
@@ -58,10 +58,13 @@ ul {
   align-self: center;
 }
 .addQfrm {
-  font-size: clamp(0.5rem, 3vw, 2.5rem);
+  font-size: clamp(0.5rem, 1.5vw, 2.5rem);
 }
 .faddq * {
-  font-size: clamp(0.5rem, 3vw, 2.5rem);
+  font-size: clamp(0.5rem, 1.5vw, 2.5rem);
+}
+.faddq button {
+  font-size: clamp(0.5rem, 1.7vw, 2.5rem);
 }
 .chin {
   display: flex;

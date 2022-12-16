@@ -96,7 +96,7 @@ function Qupdanswerform({ Qid, client, Qo, setAedit }: any) {
                       name={`updans`}
                       value={String.fromCharCode(65 + ind)}
                     />
-                    <label style={{ fontSize: "clamp(0.5rem, 3.5vw, 2.5rem)" }}>
+                    <label style={{ fontSize: "clamp(0.5rem, 2vw, 2.5rem)" }}>
                       .{String.fromCharCode(65 + ind)}
                     </label>
                   </li>

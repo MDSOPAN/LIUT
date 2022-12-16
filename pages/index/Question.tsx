@@ -66,7 +66,7 @@ function Question({ Q, Qo, A, Qid, idx }: any) {
       <div className="del">
         <button className="delbtn del">
           <FaPencilAlt
-            size="clamp(1rem, 4vw, 3rem)"
+            size="clamp(1rem, 2vw, 3rem)"
             onClick={(el: any) => {
               if (!qedit) {
                 setqedit(true);
@@ -79,7 +79,7 @@ function Question({ Q, Qo, A, Qid, idx }: any) {
         </button>
         <button className="delbtn del">
           <FaTimes
-            size="clamp(1rem, 5vw, 3.5rem)"
+            size="clamp(1rem, 2.5vw, 3.5rem)"
             onClick={async (el: any) => {
               el.preventDefault();
               if (
@@ -103,7 +103,7 @@ function Question({ Q, Qo, A, Qid, idx }: any) {
         </button>
       </div>
       <h2
-        style={{ gridColumn: "1/3", fontSize: "clamp(0.7rem, 4.3vw, 3.4rem)" }}
+        style={{ gridColumn: "1/3", fontSize: "clamp(0.7rem, 2vw, 3.4rem)" }}
       >{`${idx + 1}. ${Q}`}</h2>
       {qedit && (
         <motion.div
@@ -151,7 +151,7 @@ function Question({ Q, Qo, A, Qid, idx }: any) {
               id="updQ"
               ref={updq}
               style={{
-                fontSize: " clamp(0.7rem, 2.8vw, 3.4rem)",
+                fontSize: " clamp(0.7rem, 2vw, 3.4rem)",
               }}
             />
             <br />
@@ -189,7 +189,7 @@ function Question({ Q, Qo, A, Qid, idx }: any) {
         >
           <p
             style={{
-              fontSize: "clamp(0.7rem, 3.8vw, 2.8rem)",
+              fontSize: "clamp(0.7rem, 2vw, 2.8rem)",
               fontWeight: "bold",
             }}
           >
@@ -222,8 +222,6 @@ function Question({ Q, Qo, A, Qid, idx }: any) {
                 backgroundColor: "#365c7c",
                 display: "flex",
                 alignItems: "center",
-                height: "clamp(1rem, 5vw, 5rem)",
-                width: "clamp(1rem, 5vw, 5rem)",
               }}
               onClick={(el) => {
                 if (!addopt) {
@@ -234,10 +232,10 @@ function Question({ Q, Qo, A, Qid, idx }: any) {
                 }
               }}
             >
-              <FaPlus size="clamp(0.2rem,1.3em,1.5rem)" />
+              <FaPlus size="clamp(0.2rem,1em,1.5rem)" />
               <p
                 style={{
-                  fontSize: "clamp(0.2rem,1.3em,1.5rem)",
+                  fontSize: "clamp(0.2rem,1em,1.5rem)",
                   margin: "0.2em",
                 }}
               >
@@ -272,11 +270,18 @@ function Question({ Q, Qo, A, Qid, idx }: any) {
                 );
               }}
             >
-              <label htmlFor="adddopt">Option {Qo.length + 1}: </label>
+              <label
+                htmlFor="adddopt"
+                style={{
+                  fontSize: "clamp(0.2rem,2.5vw,1.5rem)",
+                }}
+              >
+                Option {Qo.length + 1}:{" "}
+              </label>
               <input
                 style={{
                   width: "80%",
-                  fontSize: "clamp(0.7rem, 2.8vw, 3.4rem)",
+                  fontSize: "clamp(0.7rem, 2vw, 3.4rem)",
                 }}
                 type="text"
                 name="addopt"
@@ -314,7 +319,7 @@ function Question({ Q, Qo, A, Qid, idx }: any) {
         >
           <p
             style={{
-              fontSize: "clamp(0.7rem, 3.8vw, 2.8rem)",
+              fontSize: "clamp(0.7rem, 2vw, 2.8rem)",
               fontWeight: "bold",
             }}
           >
@@ -334,7 +339,7 @@ function Question({ Q, Qo, A, Qid, idx }: any) {
               onClick={(ele: any) => {
                 !aedit ? setAedit(true) : setAedit(false);
               }}
-              size="clamp(1rem, 2.5vw,3rem)"
+              size="clamp(1rem, 2vw,3rem)"
             />
           )}
         </div>

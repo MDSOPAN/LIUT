@@ -26,7 +26,7 @@ function PageShell({
           }}
         >
           <FaSignOutAlt
-            size=" clamp(2rem, 5vw, 4rem)"
+            size=" clamp(2rem, 3vw, 4rem)"
             style={{ color: "#007980", margin: "1em" }}
             onClick={async (el) => {
               let res = await fetch("/auth/logout", {

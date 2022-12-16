@@ -68,7 +68,7 @@ function Qoptions({ el, ind, Qid, Qkey, client }: any) {
   return (
     <>
       <div className="optp">
-        <p style={{ fontSize: "clamp(0.5rem, 3.5vw, 2.5rem)" }}>{el}</p>
+        <p style={{ fontSize: "clamp(0.5rem, 2vw, 2.5rem)" }}>{el}</p>
         <div className="optbtn">
           <button className="delbtn">
             <FaPencilAlt
@@ -80,14 +80,14 @@ function Qoptions({ el, ind, Qid, Qkey, client }: any) {
                   if (oupderr) setOupderr("");
                 }
               }}
-              size="clamp(1rem, 2.5vw,1.3rem)"
+              size="clamp(1rem, 2vw,1.3rem)"
             />
           </button>
           <FaTimes
             onClick={(ele) => {
               hdldlt(ele, ind, Qid, client);
             }}
-            size="clamp(1rem, 3vw,1.5rem)"
+            size="clamp(1rem, 2.5vw,1.5rem)"
           />
         </div>
       </div>
@@ -119,13 +119,13 @@ function Qoptions({ el, ind, Qid, Qkey, client }: any) {
               }}
             >
               <label
-                style={{ fontSize: "clamp(0.7rem, 3.8vw, 2.8rem)" }}
+                style={{ fontSize: "clamp(0.7rem, 1.8vw, 2.8rem)" }}
                 htmlFor="updopt"
               >
                 Option:{" "}
               </label>
               <input
-                style={{ fontSize: "clamp(0.5rem, 3vw, 1.5rem)" }}
+                style={{ fontSize: "clamp(0.5rem, 1.5vw, 1.5rem)" }}
                 type="text"
                 name="updopt"
                 id="updopt"
