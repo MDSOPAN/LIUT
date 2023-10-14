@@ -1,0 +1,95 @@
+.Ques {
+  display: grid;
+  position: relative;
+  grid-auto-rows: auto;
+  gap: 0.3em;
+  grid-auto-columns: 1fr 1fr;
+  font-size: clamp(1.5rem, 1.4em, 2.5rem);
+}
+.Ques > p:first-of-type {
+  font-size: clamp(2rem, 2vw, 3rem);
+  margin: 0.5em 0;
+  grid-column: 1/3;
+}
+.del {
+  grid-column: 1/3;
+  justify-self: flex-end;
+  display: flex;
+  align-items: center;
+}
+
+.delbtn {
+  background-color: rgba(0, 0, 0, 0);
+  border: none;
+  color: #265985;
+}
+ol li::marker {
+  font-size: clamp(0.5rem, 1.8vw, 2.5rem);
+  font-weight: bold;
+}
+.optp {
+  display: grid;
+  grid-template-columns: 1fr 0.4fr;
+}
+.optbtn {
+  align-self: center;
+  margin-left: auto;
+}
+ul {
+  margin-left: 0.1em;
+  margin-top: 0.3em;
+  padding-inline-start: 20px;
+}
+
+.ansp p {
+  margin: 0.2em;
+  font-size: clamp(0.5rem, 2vw, 2.5rem);
+}
+.ans {
+  margin: 0.5em;
+}
+.title {
+  display: flex;
+  align-content: center;
+  align-items: center;
+}
+.ansed {
+  margin-left: auto;
+  align-self: center;
+}
+.addQfrm {
+  font-size: clamp(0.5rem, 1.5vw, 2.5rem);
+}
+.faddq * {
+  font-size: clamp(0.5rem, 1.5vw, 2.5rem);
+}
+.faddq button {
+  font-size: clamp(0.5rem, 1.7vw, 2.5rem);
+}
+.chin {
+  display: flex;
+  align-content: center;
+  align-items: center;
+  justify-content: flex-start;
+}
+input[name="updopt"] {
+  width: 80%;
+}
+input[name="ropt"] {
+  width: 1em;
+  height: 1em;
+}
+@keyframes fade {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+.submitanim {
+  animation: fade 1s ease-in infinite;
+}
