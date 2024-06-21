@@ -85,8 +85,21 @@ questionrouter.post("/app/translation/:type", async (req, res, next) => {
     await prisma.$connect;
 
     let tr = req.body.translate;
+    console.log(tr);
+    if(req.params.type == "string"){
+      if(tr.includes("pieces")){
+        tr.replaceAll("pieces","items");
+      }
+    }else{
+      tr = tr.map((el:any)=>{
+        if(el.includes("pieces")){
+          el.replaceAll("pieces","items");
+        }
+        return el;
+      })
+    }
     let data: any = await translate(tr, { from: "en", to: req.body.lang });
-
+    console.log(data)
     if (req.params.type == "array") {
       let optarr = new Array();
       data.forEach((el: any) => {
